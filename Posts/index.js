@@ -1,8 +1,10 @@
 const express = require("express");
 const { randomBytes } = require("crypto");
 const bodyParser = require("body-parser");
+const cors=require('cors')
 const app = express();
 app.use(bodyParser.json());
+app.use(cors())
 const posts = {};
 app.get("/posts", (req, res) => {
   res.send(posts);
@@ -17,6 +19,6 @@ app.post("/posts", (req, res) => {
   res.status(201).send(posts[id]);
 });
 
-app.listen(3000, () => {
-  console.log("app is listening on 3000");
+app.listen(3002, () => {
+  console.log("app is listening on 3002");
 });
